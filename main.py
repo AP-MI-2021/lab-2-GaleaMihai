@@ -1,17 +1,27 @@
 def is_prime(n):
-  ePrim = 1
-  if n == 1 or n == 0:
-    return False
+    '''
+    Verifica daca un numar e prim
+    :param n:
+    :return: true or false
+    '''
+    ePrim = 1
+    if n == 1 or n == 0:
+        return False
 
-  for i in range(2, n//2+1):
-    if n%i == 0:
-      ePrim = 0
-      return False
+    for i in range(2, n//2+1):
+        if n % i == 0:
+            ePrim = 0
+            return False
 
-  if ePrim:
-    return True
+    if ePrim:
+        return True
 
 def get_goldbach(n):
+    '''
+    Returneaza numarul prim mai mic care poate apartine sumei cerute
+    :param n:
+    :return:
+    '''
     i = 2
     var = True
     while var:
@@ -31,6 +41,11 @@ def test_get_goldbach():
 
 
 def invers(n):
+    '''
+    Returneaza inversul unui numar
+    :param n:
+    :return:
+    '''
     inv = 0  # type: int
     while n > 0:
         inv = inv*10 + n % 10
@@ -38,6 +53,11 @@ def invers(n):
     return inv
 
 def is_palindrome(n):
+    '''
+    Verifica daca un numar este palindrom.
+    :param n:
+    :return:
+    '''
     if n == invers(n):
         return True
     else:
@@ -49,6 +69,11 @@ def test_is_palindrom():
     assert is_palindrome(10) == False
 
 def is_superprime(n):
+    '''
+    Verifica daca un numar este super prim.
+    :param n:
+    :return:
+    '''
     while is_prime(n):
         n = n // 10
     if n == 0:
